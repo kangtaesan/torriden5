@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>torriden</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        window.onload = function() {
+            //menu
+            let menu01 = document.getElementsByClassName('left_gnb')[0];
+            let menuImg01 = document.getElementsByTagName('img')[0];
+            let menuList01 = document.getElementsByClassName('menu')[0];
+
+            menuList01.style.display = 'none';
+            
+            menuImg01.onclick = function() {
+                if(menuList01.style.display == 'none') {
+                    menuList01.style.display = 'block';
+                } else {menuList01.style.display = 'none';}
+            }
+
+            let menu02 = document.getElementsByClassName('icon')[0];
+            let menuImg02 = document.getElementsByTagName('img')[1];
+            let menuList02 = document.getElementsByClassName('menu')[0];
+
+            menuImg02.onclick = function() {
+                if(menuList02.style.display == 'block') {
+                    menuList02.style.display = 'none';
+                } else {menuList02.style.display = 'block';}
+            }
+
+            let depth01 = document.getElementsByClassName('depth01');
+            let depth02 = document.getElementsByClassName('depth02');
+
+            for (let i = 0; i < depth02.length; i++) {
+                depth02[i].style.display = 'none';
+            }
+
+            for(let i = 0; i < depth01.length; i++) {
+                let depth02Children = depth01[i].children[1];
+
+                depth01[i].onclick = function () {
+                    if(depth02Children.style.display == 'none') {
+                        depth02Children.style.display = 'block'
+                    } else {depth02Children.style.display = 'none'}
+                }
+            }
+            //menu end
+
+            //main_visual
+            let main = document.getElementsByClassName('main_visual')[0];
+            let mainBtn = main.getElementsByTagName('button');
+            let mainList = main.getElementsByClassName('list');
+
+            for (let i = 0; i < mainBtn.length; i++) {
+                mainBtn[i].onclick = function () {
+                    mainList[0].classList.remove('on');
+                    mainList[1].classList.remove('on');
+                    mainList[2].classList.remove('on');
+                    mainList[3].classList.remove('on');
+
+                    mainList[i].classList.add('on');
+
+                    mainBtn[0].classList.remove('on');
+                    mainBtn[1].classList.remove('on');
+                    mainBtn[2].classList.remove('on');
+                    mainBtn[3].classList.remove('on');
+
+                    mainBtn[i].classList.add('on');
+                }
+            } //main_visual end
+
+            //cont01
+            let cont01 = document.getElementsByClassName('cont01')[0];
+            let cont01Btn = cont01.getElementsByTagName('li');
+            let cont01List = cont01.getElementsByClassName('list');
+
+            for(let i = 0; i < cont01Btn.length; i++) {
+                cont01Btn[i].onclick = function(){
+
+                    cont01List[0].classList.remove('on');
+                    cont01List[1].classList.remove('on');
+                    cont01List[2].classList.remove('on');
+
+                    cont01List[i].classList.add('on');
+
+                    cont01Btn[0].classList.remove('on');
+                    cont01Btn[1].classList.remove('on');
+                    cont01Btn[2].classList.remove('on');
+
+                    cont01Btn[i].classList.add('on');
+
+                }
+            }
+            //cont01 end
+
+            //cont05
+            let cont05 = document.getElementsByClassName('cont05')[0];
+            let cont05List = cont05.getElementsByClassName('list');
+
+            let cont05Prev = cont05.getElementsByClassName('left_arrow')[0];
+            let cont05Next = cont05.getElementsByClassName('right_arrow')[0];
+            let i = 0;
+
+            cont05Next.onclick = function() {
+                i++;
+                if (i >= cont05List.length) {
+                    i = cont05List.length - 1;
+                }
+                cont05List[0].classList.remove('on');
+                cont05List[1].classList.remove('on');
+
+                cont05List[i].classList.add('on');
+            }
+            cont05Prev.onclick = function() {
+                i--;
+                if(i <= 0) {
+                    i = 0;
+                }
+                cont05List[0].classList.remove('on');
+                cont05List[1].classList.remove('on');
+
+                cont05List[i].classList.add('on');
+            }
+            //cont05 end
+
+
+        } //window.onload end
+    </script>
+</head>
+
+<body>
+    <header>
+        <section class="header_banner">
+            <div class="inner">
+                <p>신규회원 특별혜택</p>
+            </div> <!-- .inner end -->
+        </section> <!-- .header_banner end  -->
+
+        <section class="header_main">
+            <div class="inner">
+                <div class="left_gnb">
+                    <figure>
+                        <img src="img/icon_menu.png" alt="메뉴보기" />
+                    </figure>
+                    <div class="menu">
+                        <div class="icon">
+                            <figure>
+                                <img src="img/close x2.png" alt="닫기" />
+                            </figure>
+                            <figure>
+                                <img src="img/top-logo.png" alt="로고" />
+                            </figure>
+                        </div> <!-- .icon end -->
+                        <div class="brand">
+                            <h3>BRAND</h3>
+                            <ul>
+                                <li><a href="#">STORY</a></li>
+                                <li class="depth01">
+                                    <a href="#">POSITIVE STORY</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">피부환경연구소</a></li>
+                                        <li><a href="#">성분이야기</a></li>
+                                        <li><a href="#">지속가능패키지</a></li>
+                                    </ul> <!-- .depth02 -->
+                                </li> <!-- .depth01 end -->
+                            </ul>
+                        </div> <!-- .brand end -->
+                        <div class="shop">
+                            <h3>SHOP</h3>
+                            <ul>
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">BEST</a></li>
+                                <li><a href="#">NEW</a></li>
+                                <li><a href="#">SET</a></li>
+                                <li><a href="#">신규회원 특가</a></li>
+                                <li><a href="#">PROMOTION</a></li>
+                                <li class="depth01 depth01-1">
+                                    <a href="#">CATEGORY</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">클렌징</a></li>
+                                        <li><a href="#">토너/스킨</a></li>
+                                        <li><a href="#">에센스/세럼</a></li>
+                                        <li><a href="#">크림/로션</a></li>
+                                        <li><a href="#">선케어</a></li>
+                                        <li><a href="#">마스크</a></li>
+                                        <li><a href="#">립케어</a></li>
+                                    </ul> <!-- .depth02 end -->
+                                </li> <!-- .depth01 end -->
+                                <li class="depth01 depth01-2">
+                                    <a href="#">LINE</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">다이브인</a></li>
+                                        <li><a href="#">밸런스풀</a></li>
+                                        <li><a href="#">솔리드인</a></li>
+                                    </ul> <!-- .depth02 end -->
+                                </li> <!-- .depth01 end -->
+                                <li class="depth01 depth01-3">
+                                    <a href="#">CONCERN</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">수분케어</a></li>
+                                        <li><a href="#">민감/진정</a></li>
+                                        <li><a href="#">보습/장벽</a></li>
+                                        <li><a href="#">자외선차단</a></li>
+                                    </ul> <!-- .depth02 end -->
+                                </li> <!-- .depth01 end -->
+                            </ul>
+                        </div> <!-- .shop end -->
+                        <div class="project">
+                            <h3>PROJECT</h3>
+                            <ul>
+                                <li class="depth01 depth01-4">
+                                    <a href="#">none</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">MAKE IT POSITIVE</a></li>
+                                        <li><a href="#">OUR POSITIVE STORY</a></li>
+                                    </ul> <!-- .depth02 end -->
+                                </li> <!-- depth01 end -->
+                            </ul>
+                        </div> <!-- .project end -->
+                        <div class="community">
+                            <h3>COMMUNITY</h3>
+                            <ul>
+                                <li class="depth01 depth01-5">
+                                    <a href="#">none</a>
+                                    <ul class="depth02">
+                                        <li><a href="#">NOTICE</a></li>
+                                        <li><a href="#">MEMBERSHIP</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">REVIEW</a></li>
+                                        <li><a href="#">1:1문의</a></li>
+                                        <li><a href="#">상품문의</a></li>
+                                    </ul> <!-- .depth02 end -->
+                                </li>
+                            </ul>
+                        </div> <!-- .community end -->
+                        <div class="event">
+                            <h3><a href="#">EVENT</a></h3>
+                        </div> <!-- .event end -->
+                        <div class="china">
+                            <h3><a href="#">CHINA</a></h3>
+                        </div> <!-- .china end -->
+                    </div> <!-- .menu end -->
+                </div> <!-- .left_gnb end -->
+                <h1>
+                    <a href="#"><img src="img/top-logo.png" alt="로고" /> </a>
+                </h1>
+                <div class="right_gnb">
+                    <figure>
+                        <a href="#"><img src="img/search 1.png" alt="검색" /></a>
+                    </figure>
+                    <figure>
+                        <a href="#"><img src="img/mypage 1.png" alt="마이페이지" /></a>
+                    </figure>
+                    <figure>
+                        <a href="#"><img src="img/cart 1.png" alt="장바구니" /></a>
+                    </figure>
+                </div> <!-- .right_gnb -->
+            </div> <!-- .inner end -->
+        </section> <!-- .header_main end-->
+    </header>
+
+    <main>
+        <section class="main_visual">
+            <div class="inner">
+                <div class="list on">
+                    <figure>
+                        <img src="img/main_visual01.jpg" alt="메인" />
+                    </figure>
+                </div> <!-- list end -->
+                <div class="list">
+                    <figure>
+                        <img src="img/main_visual02.jpg" alt="메인" />
+                    </figure>
+                </div> <!-- list end -->
+                <div class="list">
+                    <figure>
+                        <img src="img/main_visual03.jpg" alt="메인" />
+                    </figure>
+                </div> <!-- list end -->
+                <div class="list">
+                    <figure>
+                        <img src="img/main_visual04.jpg" alt="메인" />
+                    </figure>
+                </div> <!-- list end -->
+                <!-- <video autoplay muted>
+                    <source src="img/torriden.mp4" type="video/mp4" />
+                </video> -->
+                <div class="btn_list">
+                    <button class="on"></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                </div> <!-- .btn end -->
+            </div> <!-- .inner end -->
+        </section> <!-- .main_visual end -->
+
+        <section class="cont01">
+            <div class="inner">
+                <ul>
+                    <li class="on">BEST</li>
+                    <li>NEW</li>
+                    <li>PROMOTION</li>
+                </ul>
+                <div class="list on">
+                    <div class="item">
+                        <figure>
+                            <img src="img/best01.jpg" alt="베스트메뉴1" />
+                        </figure>
+                        <div class="text">
+                            <h4>[3종세트] 다이브인 저분자 히알루론산 세럼 50ml +
+                                토너 300ml + 수딩크림 100ml</h4>
+                            <div>
+                                <p>40%</p>
+                                <span>67,000원</span>
+                            </div>
+                            <strong>39,900원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 1 -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/best02.jpg" alt="베스트메뉴2" />
+                        </figure>
+                        <div class="text">
+                            <h4>[3종세트] 다이브인 저분자 히알루론산 세럼 50ml +
+                                토너 300ml + 크림 80ml</h4>
+                            <div>
+                                <p>37%</p>
+                                <span>64,000원</span>
+                            </div>
+                            <strong>39,900원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 2 -->
+                </div> <!-- .list end / 1-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/new01.jpg" alt="뉴1" />
+                        </figure>
+                        <div class="text">
+                            <h4>밸런스풀 시카 마스크 
+                                25ml 10매</h4>
+                            <div>
+                                <p>40%</p>
+                                <span>30,000원</span>
+                            </div>
+                            <strong>18,000원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 1 -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/new02.jpg" alt="뉴2" />
+                        </figure>
+                        <div class="text">
+                            <h4>밸런스풀 시카 클렌징 젤 
+                                200ml</h4>
+                            <div>
+                                <p>25%</p>
+                                <span>20,000원</span>
+                            </div>
+                            <strong>15,000원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 2 -->
+                </div> <!-- .list end / 2-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/best01.jpg" alt="베스트메뉴1" />
+                        </figure>
+                        <div class="text">
+                            <h4>[2개묶음] 다이브인 
+                                무기자차 마일드 선크림
+                                60ml</h4>
+                            <div>
+                                <p>50%</p>
+                                <span>46,000원</span>
+                            </div>
+                            <strong>23,000원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 1 -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/best02.jpg" alt="베스트메뉴2" />
+                        </figure>
+                        <div class="text">
+                            <h4>다이브인 무기자차 마일드
+                                선크림 60ml</h4>
+                            <div>
+                                <p>40%</p>
+                                <span>23,000원</span>
+                            </div>
+                            <strong>13,800원</strong>
+                        </div> <!-- .text end -->
+                        <div class="box">
+                            <p>바로구매</p>
+                            <img src="img/cart 1.png" alt="장바구니" />
+                        </div> <!-- .box end -->
+                    </div> <!-- .item end / 2 -->
+                </div> <!-- .list end / 3-->
+            </div> <!-- .inner end -->
+        </section> <!-- .cont01 end -->
+
+        <section class="cont02">
+            <div class="inner">
+                <figure>
+                    <img src="img/brandstory_bg x2.png" alt="브랜드 스토리" />
+                </figure>
+                <div>
+                    <h4>Torriden Brand Story</h4>
+                    <strong>YOUR SKIN IS OUR PLANET</strong>
+                    <P>당신의 피부는 토리든이 지켜야 할 또 하나의 환경입니다.<br />
+                        내면의 건강한 피부환경을 만들어보세요.</P>
+                    <p><a href="#">더 알아보기</a></p>
+                </div>
+            </div> <!-- .inner end -->
+        </section> <!-- .cont02 end -->
+
+        <section class="cont03">
+            <div class="line"></div>
+
+            <div class="inner">
+                <figure>
+                    <img src="img/make it positive bg x2.jpg" alt="make it positive" />
+                </figure>
+                <div>
+                    <h4>Torriden New</h4>
+                    <strong>MAKE IT POSITIVE</strong>
+                    <P>토리든과 함께 만들어가는<br />
+                        POSITIVE STORY를 만나보세요.</P>
+                    <p><a href="#">더 알아보기</a></p>
+                </div> <!-- .inner end -->
+        </section> <!-- .cont03 end -->
+
+        <section class="cont04">
+            <div class="inner">
+                <figure>
+                    <img src="img/our positive story bg x2.jpg" alt="our positive story" />
+                </figure>
+                <div>
+                    <h4>Torriden Project</h4>
+                    <strong>OUR POSITIVE STORY</strong>
+                    <P>나와 우리로부터 시작되는<br />
+                        지속가능한 POSITIVE STORY에 함께하세요. </P>
+                    <p><a href="#">더 알아보기</a></p>
+                </div> <!-- .inner end -->
+        </section> <!-- .cont04 end -->
+
+        <section class="cont05">
+            <div class="inner">
+                <h3>Review</h3>
+                <div class="list on">
+                    <div class="item">
+                        <figure>
+                            <a href="#"><img src="img/review01.png" alt="리뷰 1번" /></a>
+                        </figure>
+                        <p>너무 열심히 써서 벌써 반 밖에<br />
+                            안남았어요 ....</p>
+                        <div class="opinion">
+                            <img src="img/star group x2.png" alt="star" />
+                            <p>4.9/5.0</p>
+                        </div> <!-- .opinion end -->
+                    </div> <!-- .item end / 1-->
+                    <div class="item">
+                        <figure>
+                            <a href="#"><img src="img/review02.png" alt="리뷰 2번" /></a>
+                        </figure>
+                        <p>요렇게 신규회원으로 할인을 해주는데 당연지사 ....</p>
+                        <div class="opinion">
+                            <img src="img/star group x2.png" alt="star" />
+                            <p>5.0/5.0</p>
+                        </div> <!-- .opinion end -->
+                    </div> <!-- .item end / 2-->
+                </div> <!-- .list end / 1-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <a href="#"><img src="img/review03.png" alt="리뷰 3번" /></a>
+                        </figure>
+                        <p>원래 여러가지 바르는 거 귀찮
+                            아해서 크림 하나 덜렁 ....</p>
+                        <div class="opinion">
+                            <img src="img/star group x2.png" alt="star" />
+                            <p>4.9/5.0</p>
+                        </div> <!-- .opinion end -->
+                    </div> <!-- .item end / 1-->
+                    <div class="item">
+                        <figure>
+                            <a href="#"><img src="img/review04.png" alt="리뷰 4번" /></a>
+                        </figure>
+                        <p>알찬구성 배송빨라요</p>
+                        <div class="opinion">
+                            <img src="img/star group x2.png" alt="star" />
+                            <p>4.7/5.0</p>
+                        </div> <!-- .opinion end -->
+                    </div> <!-- .item end / 2-->
+                </div> <!-- .list end / 2-->
+                <button class="left_arrow">
+                    <img src="img/arrow left.png" alt="왼쪽 버튼" />
+                </button> <!-- .left_arrow end -->
+                <button class="right_arrow">
+                    <img src="img/arrow right.png" alt="오른쪽 버튼" />
+                </button> <!-- .right_arrow end -->
+            </div> <!-- .inner end -->
+        </section> <!-- .cont05 end -->
+
+        <section class="cont06">
+            <div class="inner">
+                <h3>Award</h3>
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/award01.png" alt="상 1" />
+                        </figure>
+                        <p>다이브인 저분자 히얄루론산 세럼 50ml</p>
+                        <strong>2022 올리브영 어워즈
+                            에센스/세럼 부문 3위</strong>
+                    </div> <!-- .item end / 1 -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/award02.png" alt="상 2" />
+                        </figure>
+                        <p>다이브인 저분자 히얄루론산 세럼 50ml</p>
+                        <strong>2021 올리브영 어워즈 트렌드 부문
+                            클린뷰티 수상</strong>
+                    </div> <!-- .item end / 2 -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/award03.png" alt="상 3" />
+                        </figure>
+                        <p>다이브인 저분자 히얄루론산 세럼 50ml</p>
+                        <strong>2021 화해 명예의 전당
+                            에센스/앰플/세럼 부문 수상</strong>
+                    </div> <!-- .item end / 3 -->
+                </div> <!-- .list end -->
+            </div> <!-- .inner end -->
+        </section> <!-- .cont06 end -->
+    </main>
+    <footer>
+        <section class="footer">
+            <div class="inner">
+                <h1>
+                    <img src="img/bottom-logo.png" alt="로고" />
+                </h1>
+                <div class="list list01">
+                    <div class="sns">
+                        <p><a href="#">FACEBOOK</a></p>
+                        <p><a href="#">INSTAGRAM</a></p>
+                        <p><a href="#">YOUTUBE</a></p>
+                    </div> <!-- .sns end -->
+                    <p><a href="#">LOGIN</a></p>
+                </div> <!-- .list end / 1-->
+                <div class="list list02">
+                    <p>(주) 토리든</p>
+                    <p>권인구, 이윤희</p>
+                </div> <!-- .list end / 2 -->
+                <div class="address01">
+                    <p>[대전 본사] 대전광역시 서구 도안북로93번길 10-3, 2층 토리든</p>
+                </div>
+                <div class="address02">
+                    <p>[서울 지사] 서울특별시 강남구 논현로 803, 7층 토리든</p>
+                </div>
+                <div class="list list03">
+                    <p>070-7834-7700</p>
+                    <p>COPYRIGHT © ALL RIGHT RESERVED</p>
+                </div> <!-- .list end / 3 -->
+            </div> <!-- .inner end -->
+        </section>
+    </footer>
+</body>
+
+</html>
